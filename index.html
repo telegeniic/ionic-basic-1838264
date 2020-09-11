@@ -6,7 +6,13 @@
 
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+
+    <script type="module">
+        import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+        window.alertController = alertController;
+    </script>
 
     <title>Presupuesto</title>
 </head>
@@ -25,23 +31,36 @@
                         <ion-card>
                             <ion-item>
                                 <ion-label position="floating">Tipo de gasto</ion-label>
-                                <ion-input type="text" ></ion-input>
+                                <ion-input id="input-tipo" type="text" ></ion-input>
                             </ion-item>
                             <ion-item>
                                 <ion-label position="floating"> Monto </ion-label>
-                                <ion-input type="number" ></ion-input>
+                                <ion-input id="input-monto" type="number" ></ion-input>
                             </ion-item>
-                            <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+                            <ion-button id="btn-guardar" (click)="onClick()" expand="block" fill="clear" shape="round">
                                 Agregar
                             </ion-button>
                         </ion-card>
                     </ion-col>
-                    <ion-col size="6"></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col sizeMd="6" offset-md="3">
+                        <ion-list id="list-gastos">
+                            
+                            
+                        </ion-list>
+                        <h2>Total $ <span id="output=total" ></span></h2>
+                    </ion-col>
                 </ion-row>
             </ion-grid>
             
         </ion-content>
+
+        <ion-alert-controller></ion-alert-controller>
+
     </ion-app>
     
+    <script src="app.js"></script>
+
 </body>
 </html>
